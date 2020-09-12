@@ -17,7 +17,7 @@ class HiveApi {
   /// The response will be passed in [callback] eg. callback({dynmaic value}){}
   Future<Map<String, dynamic>> postApi({dynamic payload, Function callback}) async {
     Response response = await dio.post(BASE_HIVE_API_URL, data: payload);
-    if (response.statusCode == 200 && response.data != null && response.data["result"] == null) {
+    if (response.statusCode == 200 && response.data != null && response.data["result"] != null) {
       if (callback != null) {
         callback(value: response.data["result"]);
       }
