@@ -10,7 +10,7 @@ class _DummyState extends State<Dummy> {
   Hive hive = Hive();
 
   dynamic fetchAccounts() async {
-    var res = await hive.api.getAccounts(["funnyman"]);
+    var res = await hive.api.getAccounts(value: ["funnyman"]);
     if (res["status"] == "ok") {
       return res["data"];
     }

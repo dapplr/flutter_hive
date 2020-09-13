@@ -29,7 +29,7 @@ class HiveApi {
 
   Map<String, dynamic> _getPayload({dynamic params, Map<String, dynamic> payload}) {
     if (payload == null) payload = {};
-    return {..._baseApiPayload, ...payload, 'params': params};
+    return {..._baseApiPayload, ...payload, 'params': params, "id": random.nextInt(99)};
   }
 
   /// This will change the default BASE_HIVE_API_URL to the passed argument eg. setBaseOrigin("https://api.hive.blog")
@@ -39,7 +39,7 @@ class HiveApi {
   }
 
   /// Fetch accounts with [value] as a List of usernames on Hive blockchain. e.g getAccounts(["funnyman", "crazyman"])
-  Future<dynamic> getAccounts(List<String> value) async {
+  Future<dynamic> getAccounts({List<String> value, Function callback}) async {
     Map<String, dynamic> payload = _getPayload(params: [
       "database_api",
       "get_accounts",
@@ -47,6 +47,6 @@ class HiveApi {
         [...value]
       ],
     ]);
-    return await _postApi(payload: payload);
+    return await _postApi(payload: payload, callback: callback);
   }
 }
