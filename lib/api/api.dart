@@ -38,15 +38,33 @@ class HiveApi {
     return BASE_HIVE_API_URL;
   }
 
-  /// Fetch accounts with [value] as a List of usernames on Hive blockchain. e.g getAccounts(["funnyman", "crazyman"])
-  Future<dynamic> getAccounts({List<String> value, Function callback}) async {
+  /// Fetch accounts with [users] as a List of usernames on Hive blockchain. e.g getAccounts(["funnyman", "crazyman"])
+  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
+  Future<dynamic> getAccounts({List<String> users, Function callback}) async {
     Map<String, dynamic> payload = _getPayload(params: [
       "database_api",
       "get_accounts",
       [
-        [...value]
+        [...users]
       ],
     ]);
+    return await _postApi(payload: payload, callback: callback);
+  }
+
+  /// Fetch accounts with [author] as a String and [permlink] as a String of the post. e.g fetchPostDiscussions(author: "dapplr", permlink: "dapplr-is-now-hardfork-24-compatible-ios-updates-and-enhancements")
+  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
+  Future<dynamic> fetchPostDiscussions({
+    String author,
+    String permlink,
+    Function callback,
+  }) async {
+    Map<String, dynamic> payload = _getPayload(payload: {
+      "method": "bridge.get_discussion",
+    }, params: {
+      "author": author,
+      "permlink": permlink,
+    });
+
     return await _postApi(payload: payload, callback: callback);
   }
 }
