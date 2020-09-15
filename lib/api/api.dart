@@ -2,16 +2,19 @@ import 'dart:math';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_hive/constants/constants.dart';
+import 'package:flutter_hive/enums/RequestSortType.dart';
+
+part 'fetchDiscussionApi.dart';
 
 class HiveApi {
   Random random = new Random(99);
   Dio dio = new Dio();
 
   Map<String, dynamic> _baseApiPayload = {
-    'id': '1',
-    'jsonrpc': "2.0",
-    'method': "call",
-    'params': [],
+    "id": "1",
+    "jsonrpc": "2.0",
+    "method": "call",
+    "params": [],
   };
 
   /// The response will be passed in [callback] eg. callback({dynmaic value}){}
@@ -29,7 +32,7 @@ class HiveApi {
 
   Map<String, dynamic> _getPayload({dynamic params, Map<String, dynamic> payload}) {
     if (payload == null) payload = {};
-    return {..._baseApiPayload, ...payload, 'params': params, "id": random.nextInt(99)};
+    return {..._baseApiPayload, ...payload, "params": params, "id": random.nextInt(99)};
   }
 
   /// This will change the default BASE_HIVE_API_URL to the passed argument eg. setBaseOrigin("https://api.hive.blog")
@@ -48,23 +51,6 @@ class HiveApi {
         [...users]
       ],
     ]);
-    return await _postApi(payload: payload, callback: callback);
-  }
-
-  /// Fetch accounts with [author] as a String and [permlink] as a String of the post. e.g fetchPostDiscussions(author: "dapplr", permlink: "dapplr-is-now-hardfork-24-compatible-ios-updates-and-enhancements")
-  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
-  Future<dynamic> fetchPostDiscussions({
-    String author,
-    String permlink,
-    Function callback,
-  }) async {
-    Map<String, dynamic> payload = _getPayload(payload: {
-      "method": "bridge.get_discussion",
-    }, params: {
-      "author": author,
-      "permlink": permlink,
-    });
-
     return await _postApi(payload: payload, callback: callback);
   }
 }
