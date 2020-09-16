@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hive/api/api.dart';
 import 'package:flutter_hive/flutter_hive.dart';
 
 class Dummy extends StatefulWidget {
@@ -17,9 +18,18 @@ class _DummyState extends State<Dummy> {
     return null;
   }
 
+  dynamic fetchDiscussionsByTrending() async {
+    var res = await hive.api.getDiscussionsByTrending(startAuthor: "acidyo", startPermlink: "the-ocd-community", limit: 10);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
   @override
   void initState() {
     fetchAccounts();
+    fetchDiscussionsByTrending();
     super.initState();
   }
 
