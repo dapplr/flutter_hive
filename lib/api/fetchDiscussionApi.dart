@@ -106,4 +106,128 @@ extension FetchDiscussionApi on HiveApi {
       callback: callback,
     );
   }
+
+  /// Fetch the post discussions by created.
+  /// [limit] int, default value is `15`
+  ///
+  /// [startAuthor] String, Author of a psot where to start the list from `e.g dapplr`
+  ///
+  /// [startPermlink] String, Permlink of a post where to start the list from `e.g dapplr-is-now-hardfork-24-compatible-ios-updates-and-enhancements`
+  ///
+  /// [tag] String, community tag name or normal tags `e.g hive-102930`
+  ///
+  /// [observer] String, Requester username `e.g funnyman`
+  ///
+  /// The response will be passed in [callback] `eg. callback({dynmaic value}){}`
+  Future<Map<String, dynamic>> getDiscussionsByCreated({
+    int limit,
+    String observer,
+    String startAuthor,
+    String startPermlink,
+    String tag,
+    Function callback,
+  }) async {
+    return await _getPostDiscussions(
+      discussionType: "get_discussions_by_created",
+      limit: limit ?? 15,
+      observer: observer,
+      startAuthor: startAuthor,
+      startPermlink: startPermlink,
+      tag: tag,
+      callback: callback,
+    );
+  }
+
+  /// Fetch the post discussions by hot.
+  /// [limit] int, default value is `15`
+  ///
+  /// [startAuthor] String, Author of a psot where to start the list from `e.g dapplr`
+  ///
+  /// [startPermlink] String, Permlink of a post where to start the list from `e.g dapplr-is-now-hardfork-24-compatible-ios-updates-and-enhancements`
+  ///
+  /// [tag] String, community tag name or normal tags `e.g hive-102930`
+  ///
+  /// [observer] String, Requester username `e.g funnyman`
+  ///
+  /// The response will be passed in [callback] `eg. callback({dynmaic value}){}`
+  Future<Map<String, dynamic>> getDiscussionsByHot({
+    int limit,
+    String observer,
+    String startAuthor,
+    String startPermlink,
+    String tag,
+    Function callback,
+  }) async {
+    return await _getPostDiscussions(
+      discussionType: "get_discussions_by_hot",
+      limit: limit ?? 15,
+      observer: observer,
+      startAuthor: startAuthor,
+      startPermlink: startPermlink,
+      tag: tag,
+      callback: callback,
+    );
+  }
+
+  /// Fetch the post discussions by active.
+  /// [limit] int, default value is `15`
+  ///
+  /// [startAuthor] String, Author of a psot where to start the list from `e.g dapplr`
+  ///
+  /// [startPermlink] String, Permlink of a post where to start the list from `e.g dapplr-is-now-hardfork-24-compatible-ios-updates-and-enhancements`
+  ///
+  /// [tag] String, community tag name or normal tags `e.g hive-102930`
+  ///
+  /// [observer] String, Requester username `e.g funnyman`
+  ///
+  /// The response will be passed in [callback] `eg. callback({dynmaic value}){}`
+  Future<Map<String, dynamic>> getDiscussionsByCashout({
+    int limit,
+    String observer,
+    String startAuthor,
+    String startPermlink,
+    String tag,
+    Function callback,
+  }) async {
+    return await _getPostDiscussions(
+      discussionType: "get_discussions_by_hot",
+      limit: limit ?? 15,
+      observer: observer,
+      startAuthor: startAuthor,
+      startPermlink: startPermlink,
+      tag: tag,
+      callback: callback,
+    );
+  }
+
+  /// Fetch the post discussions by payout.
+  /// [limit] int, default value is `15`
+  ///
+  /// [startAuthor] String, Author of a psot where to start the list from `e.g dapplr`
+  ///
+  /// [startPermlink] String, Permlink of a post where to start the list from `e.g dapplr-is-now-hardfork-24-compatible-ios-updates-and-enhancements`
+  ///
+  /// [tag] String, community tag name or normal tags `e.g hive-102930`
+  ///
+  /// [observer] String, Requester username `e.g funnyman`
+  ///
+  /// The response will be passed in [callback] `eg. callback({dynmaic value}){}`
+  Future<Map<String, dynamic>> get_discussions_by_payout({
+    int limit,
+    String observer,
+    String startAuthor,
+    String startPermlink,
+    String tag,
+    Function callback,
+  }) async {
+    return await _getPostDiscussions(
+      discussionType: "get_discussions_by_payout",
+      limit: limit ?? 15,
+      observer: observer,
+      startAuthor: startAuthor,
+      startPermlink: startPermlink,
+      tag: tag,
+      callback: callback,
+    );
+  }
 }
