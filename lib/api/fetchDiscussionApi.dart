@@ -212,7 +212,7 @@ extension FetchDiscussionApi on HiveApi {
   /// [observer] String, Requester username `e.g funnyman`
   ///
   /// The response will be passed in [callback] `eg. callback({dynmaic value}){}`
-  Future<Map<String, dynamic>> get_discussions_by_payout({
+  Future<Map<String, dynamic>> getDiscussionsByPayout({
     int limit,
     String observer,
     String startAuthor,
@@ -227,6 +227,72 @@ extension FetchDiscussionApi on HiveApi {
       startAuthor: startAuthor,
       startPermlink: startPermlink,
       tag: tag,
+      callback: callback,
+    );
+  }
+
+  /// Fetch the post discussions by votes.
+  /// [limit] int, default value is `15`
+  ///
+  /// [startAuthor] String, Author of a psot where to start the list from `e.g dapplr`
+  ///
+  /// [startPermlink] String, Permlink of a post where to start the list from `e.g dapplr-is-now-hardfork-24-compatible-ios-updates-and-enhancements`
+  ///
+  /// [tag] String, community tag name or normal tags `e.g hive-102930`
+  ///
+  /// [observer] String, Requester username `e.g funnyman`
+  ///
+  /// The response will be passed in [callback] `eg. callback({dynmaic value}){}`
+  Future<Map<String, dynamic>> getDiscussionsByVotes({
+    int limit,
+    String observer,
+    String startAuthor,
+    String startPermlink,
+    String tag,
+    Function callback,
+  }) async {
+    return await _getPostDiscussions(
+      discussionType: "get_discussions_by_votes",
+      limit: limit ?? 15,
+      observer: observer,
+      startAuthor: startAuthor,
+      startPermlink: startPermlink,
+      tag: tag,
+      callback: callback,
+    );
+  }
+
+  /// Fetch the post discussions by feed.
+  /// [limit] int, default value is `15`
+  ///
+  /// [startAuthor] String, Author of a psot where to start the list from `e.g dapplr`
+  ///
+  /// [startPermlink] String, Permlink of a post where to start the list from `e.g dapplr-is-now-hardfork-24-compatible-ios-updates-and-enhancements`
+  ///
+  /// [tag] String, community tag name or normal tags `e.g hive-102930`
+  ///
+  /// [observer] String, Requester username `e.g funnyman`
+  ///
+  /// [account] String, Account name `e.g funnyman`
+  ///
+  /// The response will be passed in [callback] `eg. callback({dynmaic value}){}`
+  Future<Map<String, dynamic>> getDiscussionsByFeed({
+    int limit,
+    String account,
+    String observer,
+    String startAuthor,
+    String startPermlink,
+    String tag,
+    Function callback,
+  }) async {
+    return await _getPostDiscussions(
+      discussionType: "get_discussions_by_votes",
+      limit: limit ?? 15,
+      observer: observer,
+      startAuthor: startAuthor,
+      startPermlink: startPermlink,
+      tag: tag,
+      account: account,
       callback: callback,
     );
   }
