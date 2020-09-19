@@ -26,6 +26,14 @@ class _DummyState extends State<Dummy> {
     return null;
   }
 
+  dynamic fetchTrendingTags() async {
+    var res = await hive.api.getTrendingTags(afterTag: "photography");
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
   @override
   void initState() {
     fetchAccounts();
