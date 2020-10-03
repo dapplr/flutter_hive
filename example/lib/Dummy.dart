@@ -38,6 +38,7 @@ class _DummyState extends State<Dummy> {
   void initState() {
     fetchAccounts();
     fetchDiscussionsByTrending();
+    fetchTrendingTags();
     super.initState();
   }
 
