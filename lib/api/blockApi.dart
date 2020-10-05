@@ -34,4 +34,24 @@ extension BlockApi on HiveApi {
     ]);
     return await _postApi(payload: payload, callback: callback);
   }
+
+  /// Fetch block data
+  ///
+  /// [blockNum] block number, This value is required e.g getBlock(blockNum: 47506248)
+  ///
+  /// [onlyVirtual] default value is true
+  ///
+  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
+  Future<dynamic> getOpsInBlock({
+    int blockNum,
+    bool onlyVirtual = true,
+    Function callback,
+  }) async {
+    Map<String, dynamic> payload = _getPayload(params: [
+      "database_api",
+      "get_ops_in_block",
+      [blockNum, onlyVirtual],
+    ]);
+    return await _postApi(payload: payload, callback: callback);
+  }
 }
