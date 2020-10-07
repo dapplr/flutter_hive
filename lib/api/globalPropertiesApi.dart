@@ -28,4 +28,60 @@ extension GlobalPropertiesApi on HiveApi {
     ]);
     return await _postApi(payload: payload, callback: callback);
   }
+
+  /// Fetch chain properties data
+  ///
+  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
+  Future<dynamic> getChainProperties({
+    Function callback,
+  }) async {
+    Map<String, dynamic> payload = _getPayload(params: [
+      "database_api",
+      "get_chain_properties",
+      [],
+    ]);
+    return await _postApi(payload: payload, callback: callback);
+  }
+
+  /// Fetch feed history data
+  ///
+  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
+  Future<dynamic> getFeedHistory({
+    Function callback,
+  }) async {
+    Map<String, dynamic> payload = _getPayload(params: [
+      "database_api",
+      "get_feed_history",
+      [],
+    ]);
+    return await _postApi(payload: payload, callback: callback);
+  }
+
+  /// Fetch feed history data
+  ///
+  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
+  Future<dynamic> getCurrentMedianHistoryPrice({
+    Function callback,
+  }) async {
+    Map<String, dynamic> payload = _getPayload(params: [
+      "database_api",
+      "get_current_median_history_price",
+      [],
+    ]);
+    return await _postApi(payload: payload, callback: callback);
+  }
+
+  /// Fetch feed history data
+  ///
+  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
+  Future<dynamic> getHardforkVersion({
+    Function callback,
+  }) async {
+    Map<String, dynamic> payload = _getPayload(params: [
+      "database_api",
+      "get_hardfork_version",
+      [],
+    ]);
+    return await _postApi(payload: payload, callback: callback);
+  }
 }
