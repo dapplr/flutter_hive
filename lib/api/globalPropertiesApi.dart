@@ -115,4 +115,27 @@ extension GlobalPropertiesApi on HiveApi {
     ]);
     return await _postApi(payload: payload, callback: callback);
   }
+
+  /// Fetch vesting delegations data
+  ///
+  /// [account] String, Name of the account (delegator) `e.g "dapplr-delegate"`
+  ///
+  /// [from] String, Name of the account (delegatee) `e.g "funnyman"`
+  ///
+  /// [limit] int, Limit the number of entries fetched, default value is 1000
+  ///
+  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
+  Future<dynamic> getVestingDelegations({
+    String account,
+    String from,
+    int limit = 1000,
+    Function callback,
+  }) async {
+    Map<String, dynamic> payload = _getPayload(params: [
+      "database_api",
+      "get_next_scheduled_hardfork",
+      [],
+    ]);
+    return await _postApi(payload: payload, callback: callback);
+  }
 }
