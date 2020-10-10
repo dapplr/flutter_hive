@@ -7,6 +7,7 @@ import 'package:flutter_hive/enums/RequestSortType.dart';
 part 'fetchDiscussionApi.dart';
 part 'blockApi.dart';
 part 'globalPropertiesApi.dart';
+part 'keysApi.dart';
 
 class HiveApi {
   Random random = new Random(99);
