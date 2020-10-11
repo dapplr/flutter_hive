@@ -133,7 +133,7 @@ extension GlobalPropertiesApi on HiveApi {
   }) async {
     Map<String, dynamic> payload = _getPayload(params: [
       "database_api",
-      "get_next_scheduled_hardfork",
+      "get_vesting_delegations",
       [],
     ]);
     return await _postApi(payload: payload, callback: callback);
