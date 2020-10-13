@@ -1,6 +1,6 @@
+import 'package:example/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hive/api/api.dart';
-import 'package:flutter_hive/flutter_hive.dart';
 
 class Dummy extends StatefulWidget {
   @override
@@ -8,8 +8,6 @@ class Dummy extends StatefulWidget {
 }
 
 class _DummyState extends State<Dummy> {
-  Hive hive = Hive();
-
   dynamic fetchAccounts() async {
     var res = await hive.api.getAccounts(users: ["funnyman"]);
     if (res["status"] == "ok") {
