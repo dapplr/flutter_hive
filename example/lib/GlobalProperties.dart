@@ -35,6 +35,15 @@ class _GlobalPropertiesState extends State<GlobalProperties> {
     return null;
   }
 
+  dynamic getFeedHistory() async {
+    var res = await hive.api.getFeedHistory();
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -50,7 +59,6 @@ class _GlobalPropertiesState extends State<GlobalProperties> {
         ),
         Wrap(
           spacing: 6,
-          runSpacing: 6,
           children: [
             RaisedButton(
               onPressed: () {
@@ -69,6 +77,12 @@ class _GlobalPropertiesState extends State<GlobalProperties> {
                 getChainProperties();
               },
               child: Text('getChainProperties'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                getFeedHistory();
+              },
+              child: Text('getFeedHistory'),
             ),
           ],
         ),
