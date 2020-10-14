@@ -44,6 +44,33 @@ class _GlobalPropertiesState extends State<GlobalProperties> {
     return null;
   }
 
+  dynamic getCurrentMedianHistoryPrice() async {
+    var res = await hive.api.getCurrentMedianHistoryPrice();
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
+  dynamic getHardforkVersion() async {
+    var res = await hive.api.getHardforkVersion();
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
+  dynamic getNextScheduledHardfork() async {
+    var res = await hive.api.getNextScheduledHardfork();
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -83,6 +110,24 @@ class _GlobalPropertiesState extends State<GlobalProperties> {
                 getFeedHistory();
               },
               child: Text('getFeedHistory'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                getCurrentMedianHistoryPrice();
+              },
+              child: Text('getCurrentMedianHistoryPrice'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                getHardforkVersion();
+              },
+              child: Text('getHardforkVersion'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                getNextScheduledHardfork();
+              },
+              child: Text('getNextScheduledHardfork'),
             ),
           ],
         ),
