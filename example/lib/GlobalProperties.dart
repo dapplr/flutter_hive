@@ -71,6 +71,24 @@ class _GlobalPropertiesState extends State<GlobalProperties> {
     return null;
   }
 
+  dynamic getRewardFund() async {
+    var res = await hive.api.getRewardFund(name: "post");
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
+  dynamic getVestingDelegations() async {
+    var res = await hive.api.getVestingDelegations(account: "dapplr", from: "funnyman", limit: 1);
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -128,6 +146,18 @@ class _GlobalPropertiesState extends State<GlobalProperties> {
                 getNextScheduledHardfork();
               },
               child: Text('getNextScheduledHardfork'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                getRewardFund();
+              },
+              child: Text('getRewardFund'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                getVestingDelegations();
+              },
+              child: Text('getVestingDelegations'),
             ),
           ],
         ),
