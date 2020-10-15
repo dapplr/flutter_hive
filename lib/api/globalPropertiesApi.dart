@@ -134,7 +134,7 @@ extension GlobalPropertiesApi on HiveApi {
     Map<String, dynamic> payload = _getPayload(params: [
       "database_api",
       "get_vesting_delegations",
-      [],
+      [account, from, limit],
     ]);
     return await _postApi(payload: payload, callback: callback);
   }
