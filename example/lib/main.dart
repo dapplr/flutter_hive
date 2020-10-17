@@ -1,3 +1,4 @@
+import 'package:example/BlockApi.dart';
 import 'package:example/Dummy.dart';
 import 'package:example/GlobalProperties.dart';
 import 'package:flutter/material.dart';
@@ -85,6 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: [
           GlobalProperties(),
+          SizedBox(height: 20),
+          Block(),
           Center(
             // Center is a layout widget. It takes a single child and positions it
             // in the middle of the parent.

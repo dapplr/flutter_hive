@@ -8,6 +8,24 @@ class Block extends StatefulWidget {
 }
 
 class _BlockState extends State<Block> {
+  dynamic getBlockHeader() async {
+    var res = await hive.api.getBlockHeader(blockNum: 47877580);
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
+  dynamic getBlock() async {
+    var res = await hive.api.getBlock(blockNum: 47877580);
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -26,9 +44,15 @@ class _BlockState extends State<Block> {
           children: [
             RaisedButton(
               onPressed: () {
-                // getConfig();
+                getBlockHeader();
               },
-              child: Text('getConfig'),
+              child: Text('getBlockHeader'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                getBlock();
+              },
+              child: Text('getBlock'),
             ),
           ],
         ),
