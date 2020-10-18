@@ -26,6 +26,15 @@ class _BlockState extends State<Block> {
     return null;
   }
 
+  dynamic getOpsInBlock() async {
+    var res = await hive.api.getOpsInBlock(blockNum: 47877580, onlyVirtual: false);
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -53,6 +62,12 @@ class _BlockState extends State<Block> {
                 getBlock();
               },
               child: Text('getBlock'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                getOpsInBlock();
+              },
+              child: Text('getOpsInBlock'),
             ),
           ],
         ),
