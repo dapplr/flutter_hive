@@ -8,6 +8,7 @@ part 'fetchDiscussionApi.dart';
 part 'blockApi.dart';
 part 'globalPropertiesApi.dart';
 part 'keysApi.dart';
+part 'accountsApi.dart';
 
 class HiveApi {
   Random random = new Random(99);
@@ -42,19 +43,5 @@ class HiveApi {
   String setBaseOrigin(String value) {
     BASE_HIVE_API_URL = value;
     return BASE_HIVE_API_URL;
-  }
-
-  /// Fetch accounts with [users] as a List of usernames on Hive blockchain. e.g getAccounts(["funnyman", "crazyman"])
-  ///
-  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
-  Future<Map<String, dynamic>> getAccounts({List<String> users, Function callback}) async {
-    Map<String, dynamic> payload = _getPayload(params: [
-      "database_api",
-      "get_accounts",
-      [
-        [...users]
-      ],
-    ]);
-    return await _postApi(payload: payload, callback: callback);
   }
 }
