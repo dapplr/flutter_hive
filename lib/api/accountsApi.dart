@@ -45,4 +45,16 @@ extension AccountsApi on HiveApi {
     ]);
     return await _postApi(payload: payload, callback: callback);
   }
+
+  /// Fetch the total number of accounts on the blockchain.
+  ///
+  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
+  Future<Map<String, dynamic>> getAccountCount({Function callback}) async {
+    Map<String, dynamic> payload = _getPayload(params: [
+      "database_api",
+      "get_account_count",
+      [],
+    ]);
+    return await _postApi(payload: payload, callback: callback);
+  }
 }
