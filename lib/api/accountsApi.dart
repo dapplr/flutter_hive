@@ -57,4 +57,18 @@ extension AccountsApi on HiveApi {
     ]);
     return await _postApi(payload: payload, callback: callback);
   }
+
+  /// Fetch the conversion requests for an account on the blockchain.
+  ///
+  /// [accountName], Account name, String, e.g "dapplr"
+  ///
+  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
+  Future<Map<String, dynamic>> getConversionRequests({String accountName, Function callback}) async {
+    Map<String, dynamic> payload = _getPayload(params: [
+      "database_api",
+      "get_conversion_requests",
+      [accountName],
+    ]);
+    return await _postApi(payload: payload, callback: callback);
+  }
 }
