@@ -85,4 +85,18 @@ extension AccountsApi on HiveApi {
     ]);
     return await _postApi(payload: payload, callback: callback);
   }
+
+  /// Fetch the account recovery request on the blockchain.
+  ///
+  /// [account], Account name, String, e.g "dapplr"
+  ///
+  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
+  Future<Map<String, dynamic>> getRecoveryRequest({String account, Function callback}) async {
+    Map<String, dynamic> payload = _getPayload(params: [
+      "database_api",
+      "get_recovery_request",
+      [account],
+    ]);
+    return await _postApi(payload: payload, callback: callback);
+  }
 }
