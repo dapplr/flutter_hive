@@ -99,4 +99,22 @@ extension AccountsApi on HiveApi {
     ]);
     return await _postApi(payload: payload, callback: callback);
   }
+
+  /// Fetch the account history (all operations) from the blockchain.
+  ///
+  /// [account], Account name, String, e.g "dapplr"
+  ///
+  /// [from], From block num, int, e.g 5020
+  ///
+  /// [limit], Number of entries to be fetched, int, default value is 1000
+  ///
+  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
+  Future<Map<String, dynamic>> getAccountHistory({String account, int from, int limit = 1000, Function callback}) async {
+    Map<String, dynamic> payload = _getPayload(params: [
+      "database_api",
+      "get_account_history",
+      [account, from, limit],
+    ]);
+    return await _postApi(payload: payload, callback: callback);
+  }
 }
