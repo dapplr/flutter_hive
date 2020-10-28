@@ -44,136 +44,105 @@ if (res["status"] == "ok") {
 
 # API
 
-## Subscriptions
-
-### Set Subscribe Callback
-
-```
-hive.api.setSubscribeCallback(callback, clearFilter, function(err, result) {
-  console.log(err, result);
-});
-```
-
-### Set Pending Transaction Callback
-
-```
-hive.api.setPendingTransactionCallback(cb, function(err, result) {
-  console.log(err, result);
-});
-```
-
-### Set Block Applied Callback
-
-```
-hive.api.setBlockAppliedCallback(cb, function(err, result) {
-  console.log(err, result);
-});
-```
-
-### Cancel All Subscriptions
-
-```
-hive.api.cancelAllSubscriptions(function(err, result) {
-  console.log(err, result);
-});
-```
-
 ## Tags
 
 ### Get Trending Tags
 
 ```
-hive.api.getTrendingTags(afterTag, limit, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getTrendingTags(afterTag: "photography");
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Discussions By Trending
 
 ```
-hive.api.getDiscussionsByTrending(query, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getDiscussionsByTrending(startAuthor: "acidyo", startPermlink: "the-ocd-community", limit: 10);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Discussions By Created
 
 ```
-hive.api.getDiscussionsByCreated(query, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getDiscussionsByCreated(startAuthor: "acidyo", startPermlink: "the-ocd-community", limit: 10);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Discussions By Active
 
 ```
-hive.api.getDiscussionsByActive(query, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getDiscussionsByActive(startAuthor: "acidyo", startPermlink: "the-ocd-community", limit: 10);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Discussions By Cashout
 
 ```
-hive.api.getDiscussionsByCashout(query, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getDiscussionsByCashout(startAuthor: "acidyo", startPermlink: "the-ocd-community", limit: 10);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Discussions By Payout
 
 ```
-hive.api.getDiscussionsByPayout(query, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getDiscussionsByPayout(startAuthor: "acidyo", startPermlink: "the-ocd-community", limit: 10);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Discussions By Votes
 
 ```
-hive.api.getDiscussionsByVotes(query, function(err, result) {
-  console.log(err, result);
-});
-```
-
-### Get Discussions By Children
-
-```
-hive.api.getDiscussionsByChildren(query, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getDiscussionsByVotes(startAuthor: "acidyo", startPermlink: "the-ocd-community", limit: 10);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Discussions By Hot
 
 ```
-hive.api.getDiscussionsByHot(query, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getDiscussionsByHot(startAuthor: "acidyo", startPermlink: "the-ocd-community", limit: 10);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Discussions By Feed
 
 ```
-hive.api.getDiscussionsByFeed(query, function(err, result) {
-  console.log(err, result);
-});
-```
-
-### Get Discussions By Blog
-
-```
-hive.api.getDiscussionsByBlog(query, function(err, result) {
-  console.log(err, result);
-});
-```
-
-### Get Discussions By Comments
-
-```
-hive.api.getDiscussionsByComments(query, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getDiscussionsByFeed(startAuthor: "acidyo", startPermlink: "the-ocd-community", limit: 10);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ## Blocks and transactions
