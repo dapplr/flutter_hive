@@ -150,9 +150,12 @@ if (res["status"] == "ok") {
 ### Get Block Header
 
 ```
-hive.api.getBlockHeader(blockNum, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getBlockHeader(blockNum: 47877580);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Block
