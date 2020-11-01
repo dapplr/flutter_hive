@@ -196,25 +196,34 @@ if (res["status"] == "ok") {
 ### Get Dynamic Global Properties
 
 ```
-hive.api.getDynamicGlobalProperties(function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getDynamicGlobalProperties();
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Chain Properties
 
 ```
-hive.api.getChainProperties(function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getChainProperties();
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Feed History
 
 ```
-hive.api.getFeedHistory(function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getFeedHistory();
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Current Median History Price
