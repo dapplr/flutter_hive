@@ -161,49 +161,23 @@ if (res["status"] == "ok") {
 ### Get Block
 
 ```
-hive.api.getBlock(blockNum, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getBlock(blockNum: 47877580);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
-### Get State
+### Get OpsInBlock
 
 ```
-hive.api.getState(path, function(err, result) {
-  console.log(err, result);
-});
-```
-
-### Get Trending Categories
-
-```
-hive.api.getTrendingCategories(after, limit, function(err, result) {
-  console.log(err, result);
-});
-```
-
-### Get Best Categories
-
-```
-hive.api.getBestCategories(after, limit, function(err, result) {
-  console.log(err, result);
-});
-```
-
-### Get Active Categories
-
-```
-hive.api.getActiveCategories(after, limit, function(err, result) {
-  console.log(err, result);
-});
-```
-
-### Get Recent Categories
-
-```
-hive.api.getRecentCategories(after, limit, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getOpsInBlock(blockNum: 47877580, onlyVirtual: false);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ## Globals
@@ -211,9 +185,12 @@ hive.api.getRecentCategories(after, limit, function(err, result) {
 ### Get Config
 
 ```
-hive.api.getConfig(function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getConfig();
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Dynamic Global Properties
