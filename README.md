@@ -229,17 +229,23 @@ if (res["status"] == "ok") {
 ### Get Current Median History Price
 
 ```
-hive.api.getCurrentMedianHistoryPrice(function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getCurrentMedianHistoryPrice();
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Hardfork Version
 
 ```
-hive.api.getHardforkVersion(function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getHardforkVersion();
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Next Scheduled Hardfork
