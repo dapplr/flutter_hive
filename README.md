@@ -251,25 +251,34 @@ if (res["status"] == "ok") {
 ### Get Next Scheduled Hardfork
 
 ```
-hive.api.getNextScheduledHardfork(function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getNextScheduledHardfork();
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Reward Fund
 
 ```
-hive.api.getRewardFund(name, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getRewardFund();
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Vesting Delegations
 
 ```
-hive.api.getVestingDelegations(account, from, limit, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getVestingDelegations();
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ## Keys
