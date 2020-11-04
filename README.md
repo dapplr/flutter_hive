@@ -286,9 +286,12 @@ if (res["status"] == "ok") {
 ### Get Key References
 
 ```
-hive.api.getKeyReferences(key, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getKeyReferences(keys:["STM7peJ4EfsE4yBrTcRqPwcrzuFyhHEZkHyaJMX7nscW78cEB1YjD"]);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ## Accounts
