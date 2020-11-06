@@ -299,25 +299,23 @@ if (res["status"] == "ok") {
 ### Get Accounts
 
 ```
-hive.api.getAccounts(names, function(err, result) {
-  console.log(err, result);
-});
-```
-
-### Get Account References
-
-```
-hive.api.getAccountReferences(accountId, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getAccounts(users:["dapplr", "funnyman"]);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Lookup Account Names
 
 ```
-hive.api.lookupAccountNames(accountNames, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.lookupAccountNames(accountNames:["dapplr", "funnyman"]);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Lookup Accounts
@@ -331,9 +329,12 @@ hive.api.lookupAccounts(lowerBoundName, limit, function(err, result) {
 ### Get Account Count
 
 ```
-hive.api.getAccountCount(function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getAccountCount();
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Conversion Requests
