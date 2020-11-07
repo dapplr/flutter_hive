@@ -340,9 +340,12 @@ if (res["status"] == "ok") {
 ### Get Conversion Requests
 
 ```
-hive.api.getConversionRequests(accountName, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getConversionRequests(accountName: "dapplr");
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Account History
