@@ -359,15 +359,21 @@ hive.api.getAccountHistory(account, from, limit, operation_filter_low, operation
 ### Get Owner History
 
 ```
-hive.api.getOwnerHistory(account, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getOwnerHistory(account: "dapplr");
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Recovery Request
 
 ```
-hive.api.getRecoveryRequest(account, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getConversionRequests(account: "dapplr");
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
