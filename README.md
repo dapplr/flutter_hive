@@ -321,9 +321,12 @@ if (res["status"] == "ok") {
 ### Lookup Accounts
 
 ```
-hive.api.lookupAccounts(lowerBoundName, limit, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.lookupAccounts(lowerBoundName: "dap", limit: 30);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Account Count
