@@ -1,3 +1,4 @@
+import 'package:example/AccountApi.dart';
 import 'package:example/BlockApi.dart';
 import 'package:example/Dummy.dart';
 import 'package:example/GlobalProperties.dart';
@@ -88,6 +89,8 @@ class _MyHomePageState extends State<MyHomePage> {
           GlobalProperties(),
           SizedBox(height: 20),
           Block(),
+          SizedBox(height: 20),
+          Account(),
           Center(
             // Center is a layout widget. It takes a single child and positions it
             // in the middle of the parent.
