@@ -35,6 +35,24 @@ class _AccountState extends State<Account> {
     return null;
   }
 
+  dynamic getAccountCount() async {
+    var res = await hive.api.getAccountCount();
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
+  dynamic getConversionRequests() async {
+    var res = await hive.api.getConversionRequests(accountName: "funnyman");
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -68,6 +86,18 @@ class _AccountState extends State<Account> {
                 lookupAccounts();
               },
               child: Text('lookupAccounts'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                getAccountCount();
+              },
+              child: Text('getAccountCount'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                getConversionRequests();
+              },
+              child: Text('getConversionRequests'),
             ),
           ],
         ),
