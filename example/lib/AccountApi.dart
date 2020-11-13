@@ -53,6 +53,24 @@ class _AccountState extends State<Account> {
     return null;
   }
 
+  dynamic getOwnerHistory() async {
+    var res = await hive.api.getOwnerHistory(account: "funnyman");
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
+  dynamic getRecoveryRequest() async {
+    var res = await hive.api.getRecoveryRequest(account: "funnyman");
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
   @override
   void initState() {
     super.initState();
