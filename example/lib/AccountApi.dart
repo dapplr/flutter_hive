@@ -71,6 +71,15 @@ class _AccountState extends State<Account> {
     return null;
   }
 
+  dynamic getAccountHistory() async {
+    var res = await hive.api.getAccountHistory(account: "dapplr", from: 5020, limit: 1000);
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -116,6 +125,12 @@ class _AccountState extends State<Account> {
                 getConversionRequests();
               },
               child: Text('getConversionRequests'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                getAccountHistory();
+              },
+              child: Text('getAccountHistory'),
             ),
           ],
         ),
