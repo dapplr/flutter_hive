@@ -354,9 +354,12 @@ if (res["status"] == "ok") {
 ### Get Account History
 
 ```
-hive.api.getAccountHistory(account, from, limit, operation_filter_low, operation_filter_high, function(err, result) {
-  console.log(err, result);
-});
+var res = await hive.api.getAccountHistory(account: "dapplr", from: 5020, limit: 1000);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
 ```
 
 ### Get Owner History
