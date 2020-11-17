@@ -9,6 +9,7 @@ part 'blockApi.dart';
 part 'globalPropertiesApi.dart';
 part 'keysApi.dart';
 part 'accountsApi.dart';
+part 'marketApi.dart';
 
 class HiveApi {
   Random random = new Random(99);
