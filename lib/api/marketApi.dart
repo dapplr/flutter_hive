@@ -3,7 +3,7 @@ part of 'api.dart';
 extension MarketApi on HiveApi {
   /// Fetch order book data
   ///
-  /// [limit] int, Max number of entries to be fetched.
+  /// [limit] int, Max number of entries to be fetched, default value = 10
   ///
   /// The response will be passed in [callback] eg. callback({dynmaic value}){}
   Future<dynamic> getOrderBook({
@@ -31,6 +31,23 @@ extension MarketApi on HiveApi {
       "database_api",
       "get_open_orders",
       [owner],
+    ]);
+    return await _postApi(payload: payload, callback: callback);
+  }
+
+  /// Fetch the top-most entries in the market order book for both buy and sell orders.
+  ///
+  /// [limit] int, Max number of entries to be fetched, default value = 20
+  ///
+  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
+  Future<dynamic> getMarketOrderBook({
+    int limit = 20,
+    Function callback,
+  }) async {
+    Map<String, dynamic> payload = _getPayload(params: [
+      "market_history_api",
+      "get_order_book",
+      [limit],
     ]);
     return await _postApi(payload: payload, callback: callback);
   }
