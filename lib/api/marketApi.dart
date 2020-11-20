@@ -51,4 +51,18 @@ extension MarketApi on HiveApi {
     ]);
     return await _postApi(payload: payload, callback: callback);
   }
+
+  /// Fetch the market history buckets e.g Response - [ 15, 60, 300, 3600, 86400 ]
+  ///
+  /// The response will be passed in [callback] eg. callback({dynmaic value}){}
+  Future<dynamic> getMarketHistoryBuckets({
+    Function callback,
+  }) async {
+    Map<String, dynamic> payload = _getPayload(params: [
+      "market_history_api",
+      "get_market_history_buckets",
+      [],
+    ]);
+    return await _postApi(payload: payload, callback: callback);
+  }
 }
