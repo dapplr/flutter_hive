@@ -2,6 +2,7 @@ import 'package:example/AccountApi.dart';
 import 'package:example/BlockApi.dart';
 import 'package:example/Dummy.dart';
 import 'package:example/GlobalProperties.dart';
+import 'package:example/MarketApi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hive/flutter_hive.dart';
 
@@ -91,6 +92,8 @@ class _MyHomePageState extends State<MyHomePage> {
           Block(),
           SizedBox(height: 20),
           Account(),
+          SizedBox(height: 20),
+          Market(),
           Center(
             // Center is a layout widget. It takes a single child and positions it
             // in the middle of the parent.
