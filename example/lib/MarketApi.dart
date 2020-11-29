@@ -17,6 +17,24 @@ class _MarketState extends State<Market> {
     return null;
   }
 
+  dynamic getOpenOrders() async {
+    var res = await hive.api.getOpenOrders(owner: "funnyman");
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
+  dynamic getMarketOrderBook() async {
+    var res = await hive.api.getMarketOrderBook(limit: 20);
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -38,6 +56,18 @@ class _MarketState extends State<Market> {
                 getOrderBook();
               },
               child: Text('getOrderBook'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                getOrderBook();
+              },
+              child: Text('getOpenOrders'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                getOrderBook();
+              },
+              child: Text('getMarketOrderBook'),
             ),
           ],
         ),
