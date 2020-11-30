@@ -35,6 +35,15 @@ class _MarketState extends State<Market> {
     return null;
   }
 
+  dynamic getMarketHistoryBuckets() async {
+    var res = await hive.api.getMarketHistoryBuckets();
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -68,6 +77,12 @@ class _MarketState extends State<Market> {
                 getOrderBook();
               },
               child: Text('getMarketOrderBook'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                getMarketHistoryBuckets();
+              },
+              child: Text('getMarketHistoryBuckets'),
             ),
           ],
         ),
