@@ -13,6 +13,7 @@ Dart APIs for HIVE blockchain. Namespaces are similar to the JavaScript APIs in 
   - [Globals](#globals)
   - [Keys](#keys)
   - [Accounts](#accounts)
+  - [Markets](#markets)
 
 # Install
 
@@ -377,6 +378,41 @@ if (res["status"] == "ok") {
 
 ```
 var res = await hive.api.getConversionRequests(account: "dapplr");
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
+```
+
+## Markets
+
+### Get Order Book
+
+```
+var res = await hive.api.getOrderBook(limit: 20);
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
+```
+
+### Get Open Orders
+
+```
+var res = await hive.api.getOpenOrders(owner: "funnyman");
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
+```
+
+### Get Market Order Book
+
+```
+var res = await hive.api.getMarketOrderBook(limit: 20);
 if (res["status"] == "ok") {
   // Do your stuff. Response data - res["data"]
 } else {
