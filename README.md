@@ -419,3 +419,14 @@ if (res["status"] == "ok") {
   // Handle error. Response data - res["error"]
 }
 ```
+
+### Get Market History Buckets
+
+```
+var res = await hive.api.getMarketHistoryBuckets();
+if (res["status"] == "ok") {
+  // Do your stuff. Response data - res["data"]
+} else {
+  // Handle error. Response data - res["error"]
+}
+```
