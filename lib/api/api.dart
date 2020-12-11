@@ -10,6 +10,7 @@ part 'globalPropertiesApi.dart';
 part 'keysApi.dart';
 part 'accountsApi.dart';
 part 'marketApi.dart';
+part 'authorityApi.dart';
 
 class HiveApi {
   Random random = new Random(99);
