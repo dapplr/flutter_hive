@@ -93,6 +93,15 @@ class _AuthorityState extends State<Authority> {
     return null;
   }
 
+  dynamic verifyAccountAuthority() async {
+    var res = await hive.api.verifyAccountAuthority(account: "temp", signers: ["STM8GC13uCZbP44HzMLV6zPZGwVQ8Nt4Kji8PapsPiNq1BK153XTX"]);
+    print(res);
+    if (res["status"] == "ok") {
+      return res["data"];
+    }
+    return null;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -126,6 +135,12 @@ class _AuthorityState extends State<Authority> {
                 verifyAuthority();
               },
               child: Text('verifyAuthority'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                verifyAccountAuthority();
+              },
+              child: Text('verifyAccountAuthority'),
             ),
           ],
         ),
